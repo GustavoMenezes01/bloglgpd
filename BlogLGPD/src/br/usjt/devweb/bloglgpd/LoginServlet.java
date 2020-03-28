@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
                     throws ServletException, IOException {  
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        request.getRequestDispatcher("cadastro.jsp").include(request, response);  
+        request.getRequestDispatcher("moderacao.jsp").include(request, response);  
           
         String name=request.getParameter("name");  
         String password=request.getParameter("password");  
@@ -26,10 +26,10 @@ public class LoginServlet extends HttpServlet {
         if(password.equals("admin123")){  
         out.print("Bem Vindo, "+name);  
         HttpSession session=request.getSession();  
-        session.setAttribute("name",name);  
+        session.setAttribute("moderacao",name);  
         }  
         else{  
-            out.print("Desculpe, Usu√°rio ou Senha Inv√°lidos! ");  
+            out.print("Desculpe, Usu·rio ou Senha Inv·lidos! ");  
             request.getRequestDispatcher("login.jsp").include(request, response);  
         }  
         out.close();  
