@@ -9,6 +9,7 @@
 <body>
 <a href="LogoutServlet">Logout</a>
 <a href="ProfileServlet">Perfil</a>
+<a href="PostagemServlet">Postagem</a>
 <br>
 <br>
 Tela de Moderação

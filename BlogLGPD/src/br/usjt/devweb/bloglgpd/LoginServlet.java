@@ -17,21 +17,28 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
                     throws ServletException, IOException {  
         response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();  
-        request.getRequestDispatcher("moderacao.jsp").include(request, response);  
+        PrintWriter out=response.getWriter();        
+          
           
         String name=request.getParameter("name");  
         String password=request.getParameter("password");  
           
-        if(password.equals("admin123")){  
-        out.print("Bem Vindo, "+name);  
-        HttpSession session=request.getSession();  
-        session.setAttribute("moderacao",name);  
-        }  
-        else{  
+        if(password.equals("admin123")){
+        	request.getRequestDispatcher("moderacao.jsp").include(request, response);
+        	out.print("Bem Vindo, "+name);  
+        	HttpSession session=request.getSession();  
+        	session.setAttribute("name",name);        
+        }       
+        
+        if (!password.equals("admin123")) {
+        	request.getRequestDispatcher("cadastro.jsp").include(request, response);
+        	out.print("Bem Vindo, "+name);  
+        	HttpSession session=request.getSession();  
+        	session.setAttribute("name",name);
+        } else {  
             out.print("Desculpe, Usuário ou Senha Inválidos! ");  
             request.getRequestDispatcher("login.jsp").include(request, response);  
-        }  
+        }
         out.close();  
     }  
 }  
