@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         	out.print("Bem Vindo, "+name);  
         	HttpSession session=request.getSession();  
         	session.setAttribute("name",name);        
-        }       
+        }
         
         if (!password.equals("admin123")) {
         	request.getRequestDispatcher("cadastro.jsp").include(request, response);
