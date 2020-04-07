@@ -16,7 +16,7 @@
 	<form action="PostagemServlet" method="post">
 		Título:<input type="text" name="titulo"><br>
 		<br>
-		<textarea id="texto" rows="4" cols="50"></textarea>
+		<textarea id="texto" name="texto" rows="4" cols="50"></textarea>
 		<input type="submit" value="Enviar">
 	</form>
 </body>
