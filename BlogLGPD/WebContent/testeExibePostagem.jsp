@@ -15,6 +15,17 @@
 	<div class="row">
 		<div class="col-md-12">
 			<p>
+				<strong>Autor</strong>
+			</p>
+			<p>
+				<%=postagem.getAutor()%>
+			</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<p>
 				<strong>Título</strong>
 			</p>
 			<p>
@@ -30,6 +41,17 @@
 			</p>
 			<p>
 				<%=postagem.getTexto()%>
+			</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+			<p>
+				<strong>Data</strong>
+			</p>
+			<p>
+				<%=postagem.getData()%>
 			</p>
 		</div>
 	</div>

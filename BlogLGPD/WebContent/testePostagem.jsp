@@ -14,9 +14,11 @@
 	<br>
 	<br>
 	<form action="PostagemServlet" method="post">
-		Título:<input type="text" name="titulo"><br>
+		Autor:<input type="text" name="AUTOR_POSTAGEM"><br>
+		Título:<input type="text" name="TITULO_POSTAGEM"><br>
 		<br>
-		<textarea id="texto" name="texto" rows="4" cols="50"></textarea>
+		<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50"></textarea><br>
+		Data:<input type="text" name="DATA_POSTAGEM"><br>
 		<input type="submit" value="Enviar">
 	</form>
 </body>

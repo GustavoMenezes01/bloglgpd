@@ -1,20 +1,27 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Postagem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String titulo;
 	String texto;
+	String data;
+	int id;
+	String autor;
 	
 	public Postagem() {		
 	}
 
-	public Postagem(String titulo, String texto) {
+	public Postagem(String titulo, String texto, String data, int id, String autor) {
 		super();
 		this.titulo = titulo;
 		this.texto = texto;
+		this.data = data;
+		this.id = id;
+		this.autor = autor;
 	}
 
 	public String getTitulo() {
@@ -31,12 +38,39 @@ public class Postagem implements Serializable {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}	
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}	
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((texto == null) ? 0 : texto.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
@@ -51,6 +85,18 @@ public class Postagem implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Postagem other = (Postagem) obj;
+		if (autor == null) {
+			if (other.autor != null)
+				return false;
+		} else if (!autor.equals(other.autor))
+			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (id != other.id)
+			return false;
 		if (texto == null) {
 			if (other.texto != null)
 				return false;
@@ -63,7 +109,6 @@ public class Postagem implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
+			
 }
