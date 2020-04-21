@@ -2,9 +2,11 @@ package dao;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 import model.Postagem;
 
@@ -16,7 +18,7 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			stm.setString(4, postagem.getData());
+			stm.setDate(4, (Date) postagem.getData());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -40,7 +42,7 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			stm.setString(4, postagem.getData());
+			stm.setDate(4, (Date) postagem.getData());
 			stm.setInt(5, postagem.getId());
 			stm.execute();
 		} catch (Exception e) {
@@ -71,7 +73,7 @@ public class BlogDAO {
 					postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
 					postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 					postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
-					postagem.setData(rs.getString("DATA_POSTAGEM"));
+					postagem.setData(rs.getDate("DATA_POSTAGEM"));
 				} else {
 					postagem.setId(-1);
 					postagem.setAutor(null);

@@ -1,21 +1,23 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
+
 
 public class Postagem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String titulo;
 	String texto;
-	String data;
+	Date data;
 	int id;
 	String autor;
 	
 	public Postagem() {		
 	}
 
-	public Postagem(String titulo, String texto, String data, int id, String autor) {
+	public Postagem(String titulo, String texto, Date data, int id, String autor) {
 		super();
 		this.titulo = titulo;
 		this.texto = texto;
@@ -38,23 +40,23 @@ public class Postagem implements Serializable {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
-	}	
+	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setData(Date date) {
+		this.data = date;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}	
+	}
 
 	public String getAutor() {
 		return autor;

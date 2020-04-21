@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="model.Postagem"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,9 @@
 <title>Postagem</title>
 </head>
 <body>
-<%Postagem postagem=(Postagem)request.getAttribute("postagem"); %>
+	<%
+		Postagem postagem = (Postagem) request.getAttribute("postagem");
+	%>
 	<h1>Postagem</h1>
 	<br>
 	<br>
@@ -22,7 +26,7 @@
 			</p>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-12">
 			<p>
@@ -33,7 +37,7 @@
 			</p>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-6">
 			<p>
@@ -44,14 +48,18 @@
 			</p>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-6">
 			<p>
 				<strong>Data</strong>
 			</p>
 			<p>
-				<%=postagem.getData()%>
+				<%
+					Date data = new Date();
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+					out.print(sdf.format(data));
+				%>
 			</p>
 		</div>
 	</div>
