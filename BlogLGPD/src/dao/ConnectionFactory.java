@@ -8,7 +8,8 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	static {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");//vai mudar provavelmente
+			
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
@@ -17,7 +18,8 @@ public class ConnectionFactory {
 	// Obtém conexão com o banco de dados
 	public static Connection obtemConexao() throws SQLException {
 		return DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/projetointegrador?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=141626");
+				.getConnection("jdbc:mysql://postagemblog.mysql.uhserver.com/postagemblog?&user=usjtsantana1&password=USJTS@ntana1");
+		//n�o tem no 5.6 useTimezone=true&serverTimezone=America/Sao_Paulo
 	}
 
 }
