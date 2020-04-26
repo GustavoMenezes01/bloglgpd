@@ -22,5 +22,9 @@ public class BlogService {
 	
 	public Postagem carregar(int id) {
 		return dao.carregar(id);
-	}	
+	}
+	
+	public void atualizarStatus(Postagem postagem) {
+		dao.atualizarStatus(postagem);
+	}
 }

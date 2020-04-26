@@ -13,17 +13,19 @@ public class Postagem implements Serializable {
 	Date data;
 	int id;
 	String autor;
+	boolean exibir;
 	
 	public Postagem() {		
 	}
 
-	public Postagem(String titulo, String texto, Date data, int id, String autor) {
+	public Postagem(String titulo, String texto, Date data, int id, String autor, boolean exibir) {
 		super();
 		this.titulo = titulo;
 		this.texto = texto;
 		this.data = data;
 		this.id = id;
 		this.autor = autor;
+		this.exibir = exibir;
 	}
 
 	public String getTitulo() {
@@ -65,6 +67,14 @@ public class Postagem implements Serializable {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}	
+
+	public boolean isExibir() {
+		return exibir;
+	}
+
+	public void setExibir(boolean exibir) {
+		this.exibir = exibir;
+	}
 
 	@Override
 	public int hashCode() {

@@ -30,9 +30,9 @@ public class ExibirPostagemServlet extends HttpServlet {
 		BlogDAO dao = new BlogDAO();
 		
 		try {			
-			ArrayList<Postagem> allPosts = dao.getAllPosts();
+			ArrayList<Postagem> postsLiberados = dao.getPostsLiberados();
 			
-			request.setAttribute("allPosts", allPosts);
+			request.setAttribute("postsLiberados", postsLiberados);
 			RequestDispatcher view = request.getRequestDispatcher("postagem.jsp");
 			view.forward(request, response);
 		}catch (Exception e) {

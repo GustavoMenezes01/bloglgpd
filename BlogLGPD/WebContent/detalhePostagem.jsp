@@ -16,18 +16,18 @@
 </head>
 
 <body>
-	<form action="ModeracaoPostagemServlet" method="post">
-		<c:forEach var="post" items="${postsLiberados}">
-    
-${post.id} 
-${post.autor}
-${post.titulo}
-${post.texto}
-${post.data}
-<br>
+	
 
-</c:forEach>
-	</form>
+
+		${post.id}
+		${post.autor}
+		${post.titulo} 
+		${post.texto} 
+		${post.data} 
+		<br>
+
+
+	
 
 </body>
 

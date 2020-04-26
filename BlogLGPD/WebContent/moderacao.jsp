@@ -10,7 +10,7 @@
 <a href="LogoutServlet">Logout</a>
 <a href="ProfileServlet">Perfil</a>
 <a href="testePostagem.jsp">Postagem</a>
-<a href="moderacaoPostagem.jsp">Aprovação de Posts</a>
+<a href="AprovacaoPostagem">Aprovação de Posts</a>
 <br>
 <br>
 Tela de Moderação

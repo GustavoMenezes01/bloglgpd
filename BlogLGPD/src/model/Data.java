@@ -8,7 +8,7 @@ public class Data {
 
 	public Date formata(String data) throws Exception {
 		String dataString = data;
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		java.sql.Date dataFormatada = new java.sql.Date(df.parse(dataString).getTime());
 		return dataFormatada;
 	}
