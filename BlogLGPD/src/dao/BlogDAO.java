@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 import model.Postagem;
 
@@ -88,5 +88,34 @@ public class BlogDAO {
 			System.out.print(e1.getStackTrace());
 		}
 		return postagem;
+	}
+	
+	public ArrayList<Postagem> getAllPosts() throws SQLException{
+		
+		ArrayList<Postagem> allPosts = new ArrayList<>();
+		
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM order by DATA_POSTAGEM desc");
+		
+		try (Connection conn = ConnectionFactory.obtemConexao(); PreparedStatement stm = conn.prepareStatement(sqlList);){
+			ResultSet rs = stm.executeQuery();
+			
+			while(rs.next()) {
+				Postagem postagem = new Postagem();				
+				postagem.setId(rs.getInt("ID_POSTAGEM"));
+				postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
+				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
+				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));				
+				try {
+					postagem.setData(new java.util.Date(rs.getDate("DATA_POSTAGEM").getTime()));
+				} catch (Exception e) {					
+					e.printStackTrace();
+				}
+				
+				allPosts.add(postagem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return allPosts;		
 	}
 }

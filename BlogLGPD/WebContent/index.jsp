@@ -44,6 +44,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Entrar</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ModeracaoPostagemServlet">Postagens</a>
+          </li>
         </ul>
       </div>
     </div>

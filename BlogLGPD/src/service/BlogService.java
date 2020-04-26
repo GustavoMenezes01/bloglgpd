@@ -1,5 +1,7 @@
 package service;
 
+
+
 import dao.BlogDAO;
 import model.Postagem;
 
@@ -20,5 +22,5 @@ public class BlogService {
 	
 	public Postagem carregar(int id) {
 		return dao.carregar(id);
-	}
+	}	
 }

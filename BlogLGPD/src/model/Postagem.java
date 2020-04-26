@@ -64,7 +64,7 @@ public class Postagem implements Serializable {
 
 	public void setAutor(String autor) {
 		this.autor = autor;
-	}
+	}	
 
 	@Override
 	public int hashCode() {
