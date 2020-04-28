@@ -1,15 +1,16 @@
 package model;
 
-import java.sql.Date;
+
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Data {
 
-	public Date formata(String data) throws Exception {
+	public Timestamp formata(String data) throws Exception {
 		String dataString = data;
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		java.sql.Date dataFormatada = new java.sql.Date(df.parse(dataString).getTime());
+		java.sql.Timestamp dataFormatada = new java.sql.Timestamp(df.parse(dataString).getTime());
 		return dataFormatada;
 	}
 }

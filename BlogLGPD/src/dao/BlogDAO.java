@@ -1,10 +1,10 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import model.Postagem;
@@ -18,7 +18,7 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			stm.setDate(4, (Date) postagem.getData());
+			stm.setTimestamp(4, (Timestamp) postagem.getData());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery); ResultSet rs = stm2.executeQuery();) {
@@ -42,7 +42,8 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			stm.setDate(4, (Date) postagem.getData());
+			//stm.setDate(4, (Date) postagem.getData());
+			stm.setTimestamp(4, (Timestamp) postagem.getData());
 			stm.setBoolean(5, postagem.isExibir());
 			stm.setInt(6, postagem.getId());
 			stm.execute();
@@ -77,7 +78,7 @@ public class BlogDAO {
 					postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
 					postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 					postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
-					postagem.setData(rs.getDate("DATA_POSTAGEM"));
+					postagem.setData(rs.getDate("DATA_POSTAGEM"));					
 				} else {
 					postagem.setId(-1);
 					postagem.setAutor(null);
@@ -141,7 +142,7 @@ public class BlogDAO {
 
 		ArrayList<Postagem> allPostsLiberados = new ArrayList<>();
 
-		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM where EXIBIR=true order by DATA_POSTAGEM desc");
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM where EXIBIR=true order by DATA_POSTAGEM asc");
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlList);) {
