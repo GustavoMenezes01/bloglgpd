@@ -1,4 +1,4 @@
-package dao;
+package br.usjt.devweb.bloglgpd.dao;
 
 
 import java.sql.Connection;

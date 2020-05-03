@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BlogDAO;
-import model.Postagem;
+import br.usjt.devweb.bloglgpd.dao.BlogDAO;
+import br.usjt.devweb.bloglgpd.model.Postagem;
 
 @WebServlet("/Index")
 public class ExibirPostagemServlet extends HttpServlet {

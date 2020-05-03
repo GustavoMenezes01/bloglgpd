@@ -1,9 +1,9 @@
-package service;
+package br.usjt.devweb.bloglgpd.service;
 
 
 
-import dao.BlogDAO;
-import model.Postagem;
+import br.usjt.devweb.bloglgpd.dao.BlogDAO;
+import br.usjt.devweb.bloglgpd.model.Postagem;
 
 public class BlogService {
 	BlogDAO dao = new BlogDAO();

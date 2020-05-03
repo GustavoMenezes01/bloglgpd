@@ -1,4 +1,4 @@
-package model;
+package br.usjt.devweb.bloglgpd.model;
 
 
 import java.sql.Timestamp;

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Postagem;
-import service.BlogService;
+import br.usjt.devweb.bloglgpd.model.Postagem;
+import br.usjt.devweb.bloglgpd.service.BlogService;
 
 @WebServlet("/PostagemServlet")
 public class PostagemServlet extends HttpServlet {

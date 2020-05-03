@@ -1,4 +1,4 @@
-package dao;
+package br.usjt.devweb.bloglgpd.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-
-import model.Postagem;
+import br.usjt.devweb.bloglgpd.model.Postagem;
 
 public class BlogDAO {
 	public int criar(Postagem postagem) {
