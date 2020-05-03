@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import model.Data;
 import model.Postagem;
 import service.BlogService;
 
@@ -28,17 +26,18 @@ public class PostagemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//try {
+		request.setCharacterEncoding("UTF-8");
 		Postagem postagem = new Postagem();
-		Data data = new Data();		
+		//Data data = new Data();		
 		postagem.setAutor(request.getParameter("AUTOR_POSTAGEM"));
 		postagem.setTitulo(request.getParameter("TITULO_POSTAGEM"));
 		postagem.setTexto(request.getParameter("MENSAGEM_POSTAGEM"));
-		try {
-			postagem.setData(data.formata(request.getParameter("DATA_POSTAGEM")));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			postagem.setData(request.getParameter("DATA_POSTAGEM"));
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		//} catch (Exception e) {
 			//e.getMessage();
 		//}

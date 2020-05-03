@@ -20,7 +20,7 @@
 		Título:<input type="text" name="TITULO_POSTAGEM"><br>
 		<br>
 		<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50"></textarea><br>
-		Data:<input type="text" name="DATA_POSTAGEM" placeholder="dd/MM/aaaa HH:mm"><br>
+		<%--Data:<input type="text" name="DATA_POSTAGEM" placeholder="dd/MM/aaaa HH:mm"><br> --%>
 		
 		<%
 		Date data = new Date();

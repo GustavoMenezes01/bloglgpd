@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+
 import model.Postagem;
 
 public class BlogDAO {
@@ -18,7 +19,7 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			stm.setTimestamp(4, (Timestamp) postagem.getData());
+			stm.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery); ResultSet rs = stm2.executeQuery();) {
@@ -42,7 +43,7 @@ public class BlogDAO {
 			stm.setString(1, postagem.getAutor());
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
-			//stm.setDate(4, (Date) postagem.getData());
+			// stm.setDate(4, (Date) postagem.getData());
 			stm.setTimestamp(4, (Timestamp) postagem.getData());
 			stm.setBoolean(5, postagem.isExibir());
 			stm.setInt(6, postagem.getId());
@@ -78,7 +79,7 @@ public class BlogDAO {
 					postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
 					postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 					postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
-					postagem.setData(rs.getDate("DATA_POSTAGEM"));					
+					postagem.setData(rs.getTimestamp("DATA_POSTAGEM"));
 				} else {
 					postagem.setId(-1);
 					postagem.setAutor(null);
@@ -112,7 +113,7 @@ public class BlogDAO {
 				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
 				try {
-					postagem.setData(new java.util.Date(rs.getDate("DATA_POSTAGEM").getTime()));
+					postagem.setData(new java.util.Date(rs.getTimestamp("DATA_POSTAGEM").getTime()));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -142,7 +143,7 @@ public class BlogDAO {
 
 		ArrayList<Postagem> allPostsLiberados = new ArrayList<>();
 
-		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM where EXIBIR=true order by DATA_POSTAGEM asc");
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM where EXIBIR=true order by DATA_POSTAGEM desc");
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlList);) {
@@ -155,7 +156,7 @@ public class BlogDAO {
 				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
 				try {
-					postagem.setData(new java.util.Date(rs.getDate("DATA_POSTAGEM").getTime()));
+					postagem.setData(new java.util.Date(rs.getTimestamp("DATA_POSTAGEM").getTime()));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -166,5 +167,50 @@ public class BlogDAO {
 			e.printStackTrace();
 		}
 		return allPostsLiberados;
+	}
+
+	public ArrayList<Postagem> getPostsLiberadosPaginado(int offset) throws SQLException {
+		int limite = 10;
+		ArrayList<Postagem> allPostsLiberados = new ArrayList<>();
+
+		String sqlList = ("SELECT * from POSTAGEM where EXIBIR=true order by DATA_POSTAGEM desc LIMIT " + limite + " OFFSET "
+				+ offset);
+
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlList);) {
+			ResultSet rs = stm.executeQuery();
+
+			while (rs.next()) {
+				Postagem postagem = new Postagem();
+				postagem.setId(rs.getInt("ID_POSTAGEM"));
+				postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
+				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
+				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
+				try {
+					postagem.setData(new java.util.Date(rs.getTimestamp("DATA_POSTAGEM").getTime()));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				allPostsLiberados.add(postagem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return allPostsLiberados;
+	}
+
+	// metodo para retornar o numero total de registros para paginação
+	public int totalRegistros() {
+		String sql = "select count(*) as totalPostagem from POSTAGEM";
+		try (Connection conn = ConnectionFactory.obtemConexao(); PreparedStatement stm = conn.prepareStatement(sql);) {
+			ResultSet rs = stm.executeQuery();
+			rs.next();
+			int totalPosts = Integer.parseInt(rs.getString("totalPostagem"));
+			return totalPosts;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }
