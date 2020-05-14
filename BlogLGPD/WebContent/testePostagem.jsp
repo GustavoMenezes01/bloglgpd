@@ -16,8 +16,9 @@
 	<br>
 	<br>
 	<form action="PostagemServlet" method="post">
-		Autor:<input type="text" name="AUTOR_POSTAGEM"><br>
-		Título:<input type="text" name="TITULO_POSTAGEM"><br>
+		Autor:<input type="text" name="AUTOR_POSTAGEM" ><br>
+		Título:<input type="text" name="TITULO_POSTAGEM" value="<%= request.getParameter("titulo")%>"><br>
+		Referencia:<input type="text" name="REFERENCIA" value="<%= request.getParameter("referencia")%>"><br>
 		<br>
 		<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50"></textarea><br>
 		<%--Data:<input type="text" name="DATA_POSTAGEM" placeholder="dd/MM/aaaa HH:mm"><br> --%>
@@ -32,7 +33,3 @@
 	</form>
 </body>
 </html>
-
-
-		
-		

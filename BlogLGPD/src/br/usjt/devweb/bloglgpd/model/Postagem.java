@@ -3,19 +3,18 @@ package br.usjt.devweb.bloglgpd.model;
 import java.io.Serializable;
 import java.util.Date;
 
-
-
 public class Postagem implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	String titulo;
 	String texto;
 	Date data;
 	int id;
 	String autor;
 	boolean exibir;
-	
-	public Postagem() {		
+	int referencia;
+
+	public Postagem() {
 	}
 
 	public Postagem(String titulo, String texto, Date data, int id, String autor, boolean exibir) {
@@ -26,6 +25,14 @@ public class Postagem implements Serializable {
 		this.id = id;
 		this.autor = autor;
 		this.exibir = exibir;
+	}
+
+	public int getReferencia() {
+		return referencia;
+	}
+
+	public void setReferencia(int referencia) {
+		this.referencia = referencia;
 	}
 
 	public String getTitulo() {
@@ -66,7 +73,7 @@ public class Postagem implements Serializable {
 
 	public void setAutor(String autor) {
 		this.autor = autor;
-	}	
+	}
 
 	public boolean isExibir() {
 		return exibir;
@@ -121,6 +128,4 @@ public class Postagem implements Serializable {
 			return false;
 		return true;
 	}
-
-			
 }

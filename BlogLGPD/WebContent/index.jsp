@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -75,7 +74,7 @@
 							<div class="card-body">
 								<h2 class="card-title">${post.titulo}</h2>
 								<p class="card-text">${post.texto}</p>
-								<a href="#" class="btn btn-primary">Respostas &rarr;</a>
+								<a href="testePostagem.jsp?referencia=${post.id}&titulo=${post.titulo}&mensagem=${request.mensagem}&autor=${post.autor}" class="btn btn-primary">Respostas &rarr;</a>
 							</div>
 							<div class="card-footer text-muted">
 								Postado em ${post.data} por <a href="#">${post.autor}</a>
