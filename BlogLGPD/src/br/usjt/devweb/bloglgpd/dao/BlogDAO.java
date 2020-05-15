@@ -11,7 +11,7 @@ import br.usjt.devweb.bloglgpd.model.Postagem;
 
 public class BlogDAO {
 	public int criar(Postagem postagem) {
-		String sqlInsert = "INSERT INTO POSTAGEM(AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM) VALUES (?, ?, ?, ?)";
+		String sqlInsert = "INSERT INTO POSTAGEM(AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM, REFERENCIA) VALUES (?, ?, ?, ?, ?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
@@ -19,6 +19,7 @@ public class BlogDAO {
 			stm.setString(2, postagem.getTitulo());
 			stm.setString(3, postagem.getTexto());
 			stm.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+			stm.setInt(5, postagem.getReferencia());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery); ResultSet rs = stm2.executeQuery();) {
@@ -172,8 +173,8 @@ public class BlogDAO {
 		int limite = 10;
 		ArrayList<Postagem> allPostsLiberados = new ArrayList<>();
 
-		String sqlList = ("SELECT * from POSTAGEM where EXIBIR=true order by DATA_POSTAGEM desc LIMIT " + limite + " OFFSET "
-				+ offset);
+		String sqlList = ("SELECT * from POSTAGEM where EXIBIR=true and REFERENCIA is null order by DATA_POSTAGEM desc LIMIT "
+				+ limite + " OFFSET " + offset);
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlList);) {
@@ -211,5 +212,35 @@ public class BlogDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public ArrayList<Postagem> getFilhos(int idPai) {
+		ArrayList<Postagem> lista = new ArrayList<>();
+		System.out.println("id: " + idPai);
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM, REFERENCIA FROM POSTAGEM where REFERENCIA = ?");
+
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlList);) {
+			stm.setInt(1, idPai);
+			ResultSet rs = stm.executeQuery();
+			while (rs.next()) {
+				Postagem postagem = new Postagem();
+				postagem.setId(rs.getInt("ID_POSTAGEM"));
+				postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
+				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
+				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
+				postagem.setReferencia(rs.getInt("REFERENCIA"));
+				try {
+					postagem.setData(new java.util.Date(rs.getTimestamp("DATA_POSTAGEM").getTime()));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				lista.add(postagem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 }

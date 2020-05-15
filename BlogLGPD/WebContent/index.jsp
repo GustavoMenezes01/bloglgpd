@@ -46,9 +46,7 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Senha</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Entrar</a></li>
-					<li class="nav-item"><a class="nav-link" href="Index">Postagens</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -74,12 +72,53 @@
 							<div class="card-body">
 								<h2 class="card-title">${post.titulo}</h2>
 								<p class="card-text">${post.texto}</p>
-								<a href="testePostagem.jsp?referencia=${post.id}&titulo=${post.titulo}&mensagem=${request.mensagem}&autor=${post.autor}" class="btn btn-primary">Respostas &rarr;</a>
+								<a
+									href="testePostagem.jsp?referencia=${post.id}&titulo=${post.titulo}&mensagem=${request.mensagem}&autor=${post.autor}"
+									class="btn btn-primary">Respostas &rarr;</a>
 							</div>
 							<div class="card-footer text-muted">
-								Postado em ${post.data} por <a href="#">${post.autor}</a>
+								Postado em ${post.data} por <a href="#">${post.autor}</a><br>Tem
+								filho: ${post.postagens.size()}
 							</div>
 						</div>
+						<c:forEach var="post2" items="${post.postagens}">
+							<!-- Blog Post -->
+							<div class="card mb-4">
+								<!--<img class="card-img-top"
+								src="img/A-Lei-Geral-de-Proteção-de-Dados-Pessoais.png"
+								height="450" alt="Card image cap">-->
+								<div class="card-body">
+									<h2 class="card-title">${post2.titulo}</h2>
+									<p class="card-text">${post2.texto}</p>
+									<a
+										href="testePostagem.jsp?referencia=${post2.id}&titulo=${post2.titulo}&mensagem=${request.mensagem}&autor=${post2.autor}"
+										class="btn btn-primary">Respostas &rarr;</a>
+								</div>
+								<div class="card-footer text-muted">
+									Postado em ${post2.data} por <a href="#">${post2.autor}</a><br>Tem
+									filho: ${post2.postagens.size()}
+								</div>
+							</div>
+							<c:forEach var="post3" items="${post2.postagens}">
+								<!-- Blog Post -->
+								<div class="card mb-4">
+									<!--<img class="card-img-top"
+								src="img/A-Lei-Geral-de-Proteção-de-Dados-Pessoais.png"
+								height="450" alt="Card image cap">-->
+									<div class="card-body">
+										<h2 class="card-title">${post3.titulo}</h2>
+										<p class="card-text">${post3.texto}</p>
+										<a
+											href="testePostagem.jsp?referencia=${post3.id}&titulo=${post3.titulo}&mensagem=${request.mensagem}&autor=${post3.autor}"
+											class="btn btn-primary">Respostas &rarr;</a>
+									</div>
+									<div class="card-footer text-muted">
+										Postado em ${post3.data} por <a href="#">${post3.autor}</a><br>Tem
+										filho: ${post3.postagens.size()}
+									</div>
+								</div>
+							</c:forEach>
+						</c:forEach>
 					</c:forEach>
 				</form>
 
@@ -97,7 +136,7 @@
 							sortable="true" headerClass="sortable" />
 					</display:table>
 				</div>--%>
-				
+
 				<%--<%
 				if(quantidadePagina > 0){
 					for(int i = 1; i <= quantidadePagina; i++){
@@ -128,44 +167,45 @@
 				<!-- Pagination -->
 				<!-- Mudar limite aqui na JSP e no DAO -->
 				<%
-				int limite = 10;
-				String pagina = request.getParameter("pagina");
-				if(pagina == null){
-					pagina = "1";
-				}
-				
-				int offset = (Integer.parseInt(pagina) * limite) - limite;
-				
-				int totalPosts = (int) request.getAttribute("totalPosts");
-				int totalPagina = totalPosts / limite;
-				if(totalPosts % limite != 0){
-					totalPagina++;
-				}
-				
-				int paginaAnterior;
-				if(Integer.parseInt(pagina) > 1){					
-					paginaAnterior = Integer.parseInt(pagina) - 1;
-					offset = ((paginaAnterior) * limite) - limite;
-					out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + paginaAnterior + "' >&larr;Anterior</a>");
-				}
-				
-				for(int i = 1; i <= totalPagina; i++){
-					if(i == Integer.parseInt(pagina)){
-						
-					} else {
-						offset = ((i) * limite) - limite;
-						out.println("<a href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
+					int limite = 10;
+					String pagina = request.getParameter("pagina");
+					if (pagina == null) {
+						pagina = "1";
 					}
-				}
-				
-				int proximaPagina;
-				if((totalPosts - (Integer.parseInt(pagina) * limite)) > 0){
-					proximaPagina = Integer.parseInt(pagina) + 1;
-					offset = ((proximaPagina) * limite) - limite;
-					out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina + "' >&larr;Próxima</a>");
-				}			
-				
-				%> 
+
+					int offset = (Integer.parseInt(pagina) * limite) - limite;
+
+					int totalPosts = (int) request.getAttribute("totalPosts");
+					int totalPagina = totalPosts / limite;
+					if (totalPosts % limite != 0) {
+						totalPagina++;
+					}
+
+					int paginaAnterior;
+					if (Integer.parseInt(pagina) > 1) {
+						paginaAnterior = Integer.parseInt(pagina) - 1;
+						offset = ((paginaAnterior) * limite) - limite;
+						out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + paginaAnterior
+								+ "' >&larr;Anterior</a>");
+					}
+
+					for (int i = 1; i <= totalPagina; i++) {
+						if (i == Integer.parseInt(pagina)) {
+
+						} else {
+							offset = ((i) * limite) - limite;
+							out.println("<a href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
+						}
+					}
+
+					int proximaPagina;
+					if ((totalPosts - (Integer.parseInt(pagina) * limite)) > 0) {
+						proximaPagina = Integer.parseInt(pagina) + 1;
+						offset = ((proximaPagina) * limite) - limite;
+						out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina
+								+ "' >&larr;Próxima</a>");
+					}
+				%>
 
 			</div>
 
@@ -174,7 +214,7 @@
 	</div>
 	<!-- /.row -->
 
-	
+
 	<!-- /.container -->
 
 	<!-- Footer -->

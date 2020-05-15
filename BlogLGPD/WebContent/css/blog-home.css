@@ -33,8 +33,57 @@ margin-bottom: 2px;
 margin-top: 10px;
 }
 a.title:hover {
+
 color: #007bff !important;
 }
 .divForm {
 padding-left: 50px;
+}
+.logout {
+text-align: center;
+}
+.divLogout {
+height: 411px;
+}
+.form {
+backdrop-filter: brightness(0.5);
+padding-top: 50px;
+padding-bottom: 50px;
+width: 400px;
+margin-left: 360px;
+
+}
+.form1 {
+backdrop-filter: brightness(0.5);
+width: 400px;
+margin-left: 370px;
+text-align: center;
+
+}
+.menu {
+text-align: end;
+}
+.divPostagem {
+height: 442px;
+}
+.menu a {
+margin: 10px;
+}
+form,
+
+label {
+display: block;
+padding: 10px;
+}
+form {
+width: 380px;
+margin: 10px;
+}
+label {
+color: #FFF;
+
+}
+input {
+display: inline-block;
+padding-left: 10px;
 }

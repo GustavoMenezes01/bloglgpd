@@ -1,6 +1,7 @@
 package br.usjt.devweb.bloglgpd.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Postagem implements Serializable {
@@ -13,6 +14,7 @@ public class Postagem implements Serializable {
 	String autor;
 	boolean exibir;
 	int referencia;
+	ArrayList<Postagem> postagens = new ArrayList<>();
 
 	public Postagem() {
 	}
@@ -25,6 +27,14 @@ public class Postagem implements Serializable {
 		this.id = id;
 		this.autor = autor;
 		this.exibir = exibir;
+	}	
+
+	public ArrayList<Postagem> getPostagens() {
+		return postagens;
+	}
+
+	public void setPostagens(ArrayList<Postagem> postagens) {
+		this.postagens = postagens;
 	}
 
 	public int getReferencia() {

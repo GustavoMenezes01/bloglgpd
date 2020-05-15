@@ -2,7 +2,6 @@ package br.usjt.devweb.bloglgpd;
 
 import java.io.IOException;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,31 +24,35 @@ public class PostagemServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//try {
+		// try {
 		request.setCharacterEncoding("UTF-8");
 		Postagem postagem = new Postagem();
-		//Data data = new Data();		
+		// Data data = new Data();
 		postagem.setAutor(request.getParameter("AUTOR_POSTAGEM"));
 		postagem.setTitulo(request.getParameter("TITULO_POSTAGEM"));
 		postagem.setTexto(request.getParameter("MENSAGEM_POSTAGEM"));
+		String ref = request.getParameter("REFERENCIA");
+		if (ref.length() > 0) {
+			postagem.setReferencia(Integer.parseInt(ref));
+		}
 //		try {
 //			postagem.setData(request.getParameter("DATA_POSTAGEM"));
 //		} catch (Exception e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		//} catch (Exception e) {
-			//e.getMessage();
-		//}
+		// } catch (Exception e) {
+		// e.getMessage();
+		// }
 		// SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
 		// Date DATA_POSTAGEM = sdf.parse(pData);
 
-		// instanciar o javabean		
-		/*Postagem postagem = new Postagem();
-		postagem.setAutor(pAutor);
-		postagem.setTitulo(pTitulo);
-		postagem.setTexto(pTexto);
-		postagem.setData(pData);*/
+		// instanciar o javabean
+		/*
+		 * Postagem postagem = new Postagem(); postagem.setAutor(pAutor);
+		 * postagem.setTitulo(pTitulo); postagem.setTexto(pTexto);
+		 * postagem.setData(pData);
+		 */
 
 		/*
 		 * Postagem postagem = new Postagem(); postagem.setAutor(pAutor);
@@ -58,7 +61,7 @@ public class PostagemServlet extends HttpServlet {
 		 */
 
 		// instanciar o service
-		//Postagem postagem = new Postagem();
+		// Postagem postagem = new Postagem();
 		BlogService bs = new BlogService();
 		bs.criar(postagem);
 		postagem = bs.carregar(postagem.getId());
