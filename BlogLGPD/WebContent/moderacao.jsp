@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
 <div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container">
-<a class="navbar-brand" href="index.jsp">Proteção de Dados</a>
+<a class="navbar-brand">Proteção de Dados</a>
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-
 controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,6 @@ controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
 </button>
 <div class="col-md-6" id="">
 <a class="idmenu" href="LogoutServlet">Logout</a>
-<a class="idmenu" href="ProfileServlet">Perfil</a>
 <a class="idmenu" href="testePostagem.jsp">Postagem</a>
 <a class="idmenu" href="AprovacaoPostagem">Aprovação de Posts</a>
 

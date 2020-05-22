@@ -173,7 +173,7 @@ public class BlogDAO {
 		int limite = 10;
 		ArrayList<Postagem> allPostsLiberados = new ArrayList<>();
 
-		String sqlList = ("SELECT * from POSTAGEM where EXIBIR=true and REFERENCIA is null order by DATA_POSTAGEM desc LIMIT "
+		String sqlList = ("SELECT * from POSTAGEM where EXIBIR=true and REFERENCIA = 0 order by DATA_POSTAGEM desc LIMIT "
 				+ limite + " OFFSET " + offset);
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
@@ -217,7 +217,7 @@ public class BlogDAO {
 	public ArrayList<Postagem> getFilhos(int idPai) {
 		ArrayList<Postagem> lista = new ArrayList<>();
 		System.out.println("id: " + idPai);
-		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM, REFERENCIA FROM POSTAGEM where REFERENCIA = ?");
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM, REFERENCIA FROM POSTAGEM where EXIBIR=true and REFERENCIA = ?");
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlList);) {

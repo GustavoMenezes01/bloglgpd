@@ -25,22 +25,22 @@ public class LoginServlet extends HttpServlet {
 
 		if (password.equals("admin123") && !name.isEmpty()) {
 			request.getRequestDispatcher("moderacao.jsp").include(request, response);
-			//out.print("Bem Vindo, " + name);
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("name", name);
 		} else if (password != "admin123" && !password.isEmpty() && !name.isEmpty()) {
 			request.getRequestDispatcher("cadastro.jsp").include(request, response);
-			//out.print("Bem Vindo, " + name);
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("name", name);
 		} else if (name.isEmpty()) {
-			//out.print("Desculpe, informar login.");
+			out.print("<script>alert('Informar Login');</script>");
 			request.getRequestDispatcher("login.jsp").include(request, response);			
 		} else if(password.isEmpty()){
-			//out.print("Desculpe, informar senha.");
+			out.print("<script>alert('Informar senha');</script>");
 			request.getRequestDispatcher("login.jsp").include(request, response);
 		}else {
-			//out.print("Desculpe, Usuário ou Senha Inválidos! ");
+			
 			request.getRequestDispatcher("login.jsp").include(request, response);
 		}
 		out.close();

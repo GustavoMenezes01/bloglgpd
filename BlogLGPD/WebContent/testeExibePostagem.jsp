@@ -8,6 +8,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Postagem</title>
+<script type="text/javascript">
+	function openPage(pageURL) {
+		window.location = pageURL;
+	}
+</script>
 </head>
 <body>
 	<%
@@ -63,5 +68,12 @@
 			</p>
 		</div>
 	</div>
+	
+	<div id="actions" class="row">
+			<div class="col-md-12">
+				<input type="button" value="Voltar"
+					onclick="openPage('testePostagem.jsp')">
+			</div>
+		</div>
 </body>
 </html>

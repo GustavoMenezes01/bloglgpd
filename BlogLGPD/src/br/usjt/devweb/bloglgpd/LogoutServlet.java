@@ -22,10 +22,7 @@ public class LogoutServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").include(request, response);  
               
             HttpSession session=request.getSession();  
-            session.invalidate();  
-              
-            out.print("Você se deslogou com sucesso!");  
-              
+            session.invalidate();              
             out.close();  
     }  
 }  

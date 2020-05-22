@@ -31,7 +31,7 @@ public class PostagemServlet extends HttpServlet {
 		postagem.setAutor(request.getParameter("AUTOR_POSTAGEM"));
 		postagem.setTitulo(request.getParameter("TITULO_POSTAGEM"));
 		postagem.setTexto(request.getParameter("MENSAGEM_POSTAGEM"));
-		String ref = request.getParameter("REFERENCIA");
+		String ref = request.getParameter("REFERENCIA");		
 		if (ref.length() > 0) {
 			postagem.setReferencia(Integer.parseInt(ref));
 		}

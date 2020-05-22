@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.usjt.devweb.bloglgpd.dao.BlogDAO;
 import br.usjt.devweb.bloglgpd.model.Postagem;
+import br.usjt.devweb.bloglgpd.service.BlogService;
 
 @WebServlet("/AprovacaoPostagem")
 public class DetalhePostagemServlet extends HttpServlet{
@@ -26,11 +27,12 @@ public class DetalhePostagemServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		BlogDAO dao = new BlogDAO();
+		//BlogDAO dao = new BlogDAO();
+		BlogService service = new BlogService();
 		
 		try {			
-			ArrayList<Postagem> allPosts = dao.getAllPosts();
-			
+			//ArrayList<Postagem> allPosts = dao.getAllPosts();
+			ArrayList<Postagem> allPosts = service.getPostagensAprovacaoModerador();
 			request.setAttribute("allPosts", allPosts);
 			RequestDispatcher view = request.getRequestDispatcher("moderacaoPostagem.jsp");
 			view.forward(request, response);

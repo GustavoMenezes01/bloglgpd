@@ -2,6 +2,7 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +19,11 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 				<div class="col-md-6" id="">
-					<a class="navbar-brand" href="index.jsp">Postagem</a>
+					<a class="navbar-brand">Postagem</a>
 				</div>
 				<div class="col-md-6 menu" id="">
-					<a href="LogoutServlet">Logout</a> <a href="ProfileServlet">Perfil</a>
-					<a href="PostagemServlet">Postagem</a>
+					<a href="LogoutServlet">Logout</a> 
+					<!--<a href="PostagemServlet">Postagem</a>-->
 				</div>
 			</div>
 		</nav>
@@ -31,17 +32,29 @@
 	<br>
 	<section class="divPostagem">
 
+		<%
+			String autor = request.getParameter("autor");
+			String titulo = request.getParameter("titulo");
+			String mensagem = request.getParameter("mensagem");
+			String ref = request.getParameter("referencia");
+
+			if (autor == null) {
+				autor = "";
+				titulo = "";
+				mensagem = "";
+				ref = "";
+			}
+		%>
+
 		<div class=" container logout">
 			<div class="form1">
 				<form action="PostagemServlet" method="post">
-					<label>Autor:</label> <input type="text" name="AUTOR_POSTAGEM"><br>
-					<label>Título:</label> <input type="text" name="TITULO_POSTAGEM"
-						value="<%=request.getParameter("titulo")%>"><br>
-
-					<label>Referencia:</label> <input type="text" name="REFERENCIA"
-						value="<%=request.getParameter("referencia")%>"><br>
-
-					<br>
+					<label>Autor:</label> <input type="text" name="AUTOR_POSTAGEM"
+						placeholder="Digite seu nome"><br> 
+					<label>Título:</label>
+					<input type="text" name="TITULO_POSTAGEM" value="<%=titulo%>"><br>
+					<input type="hidden" id="ref" 
+						name="REFERENCIA" value="<%=ref%>"><br> <br>
 					<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50"></textarea>
 					<br>
 					<%--Data:<input type="text" name="DATA_POSTAGEM" placeholder="dd/MM/aaaa HH:mm">
@@ -73,3 +86,7 @@
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<script>
+	//$('label[for=ref], input#ref').hide();
+</script>

@@ -74,7 +74,7 @@
 								<p class="card-text">${post.texto}</p>
 								<a
 									href="testePostagem.jsp?referencia=${post.id}&titulo=${post.titulo}&mensagem=${request.mensagem}&autor=${post.autor}"
-									class="btn btn-primary">Respostas &rarr;</a>
+									class="btn btn-primary">Responder &rarr;</a>
 							</div>
 							<div class="card-footer text-muted">
 								Postado em ${post.data} por <a href="#">${post.autor}</a><br>Tem
@@ -92,7 +92,7 @@
 									<p class="card-text">${post2.texto}</p>
 									<a
 										href="testePostagem.jsp?referencia=${post2.id}&titulo=${post2.titulo}&mensagem=${request.mensagem}&autor=${post2.autor}"
-										class="btn btn-primary">Respostas &rarr;</a>
+										class="btn btn-primary">Responder &rarr;</a>
 								</div>
 								<div class="card-footer text-muted">
 									Postado em ${post2.data} por <a href="#">${post2.autor}</a><br>Tem
@@ -110,7 +110,7 @@
 										<p class="card-text">${post3.texto}</p>
 										<a
 											href="testePostagem.jsp?referencia=${post3.id}&titulo=${post3.titulo}&mensagem=${request.mensagem}&autor=${post3.autor}"
-											class="btn btn-primary">Respostas &rarr;</a>
+											class="btn btn-primary">Responder &rarr;</a>
 									</div>
 									<div class="card-footer text-muted">
 										Postado em ${post3.data} por <a href="#">${post3.autor}</a><br>Tem
