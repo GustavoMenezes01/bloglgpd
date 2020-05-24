@@ -23,7 +23,7 @@
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-				<a class="navbar-brand" href="index.jsp">Proteção de Dados</a>
+				<a class="navbar-brand" href="Index">Proteção de Dados</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarResponsive" aria- controls="navbarResponsive"

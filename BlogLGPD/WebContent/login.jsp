@@ -32,11 +32,17 @@
 		<div class=" container logout">
 			<div class="form">
 				<form action="LoginServlet" method="post">
-					<label>Login:</label> <input type="text" name="name"><br>
-					<br> <label>Senha:</label> <input type="password"
-						name="password"><br>
+					<label>Login:</label>
+					<input type="text" name="name" placeholder="Login">
 					<br>
-					<br> <input type="submit" value="Entrar">
+					<br> 
+					<label>Senha:</label> 
+					<input type="password"
+						name="password" placeholder="Senha">
+					<br>
+					<br>
+					<br> 
+					<input type="submit" value="Entrar">
 				</form>
 			</div>
 		</div>
