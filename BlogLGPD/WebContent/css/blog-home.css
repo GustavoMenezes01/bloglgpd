@@ -4,86 +4,159 @@
 * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
 */
 body {
-padding-top: 56px;
+	padding-top: 56px;
 }
+
 .idmenu {
-text-decoration: none !important;
-padding: 15px;
-font-size: 20px;
+	text-decoration: none !important;
+	padding: 15px;
+	font-size: 20px;
 }
+
 a.navbar-brand {
-font-size: 25px;
+	font-size: 25px;
+	color: #007bff !important;
 }
+
 .principal {
-margin-top: 70px;
+	margin-top: 70px;
 }
+
 a:hover {
-color: #fff !important;
+	color: #fff !important;
 }
+
 .fixed-top {
-height: 100px !important;
+	height: 100px !important;
 }
+
 .menu-postagem {
-margin-top: 100px;
-
-margin-bottom: 80px;
+	margin-top: 100px;
+	margin-bottom: 80px;
 }
+
 .number {
-margin-bottom: 2px;
-margin-top: 10px;
+	margin-bottom: 2px;
+	margin-top: 10px;
 }
+
 a.title:hover {
-
-color: #007bff !important;
+	color: #007bff !important;
 }
+
 .divForm {
-padding-left: 50px;
+	padding-left: 550px;
+	width: auto !important;
 }
+
 .logout {
-text-align: center;
+	text-align: center;
 }
+
 .divLogout {
-height: 411px;
+	height: 411px;
 }
+
 .form {
-backdrop-filter: brightness(0.5);
-padding-top: 50px;
-padding-bottom: 50px;
-width: 400px;
-margin-left: 360px;
-
+	backdrop-filter: brightness(0.5);
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 400px;
+	margin-left: 360px;
 }
+
 .form1 {
-backdrop-filter: brightness(0.5);
-width: 400px;
-margin-left: 370px;
-text-align: center;
-
+	backdrop-filter: brightness(0.5);
+	width: 400px;
+	margin-left: 370px;
+	text-align: center;
 }
+
 .menu {
-text-align: end;
+	text-align: end;
 }
+
 .divPostagem {
-height: 442px;
+	height: 442px;
 }
+
 .menu a {
-margin: 10px;
+	margin: 10px;
 }
-form,
 
-label {
-display: block;
-padding: 10px;
+form, label {
+	display: block;
+	padding: 10px;
 }
+
 form {
-width: 380px;
-margin: 10px;
+	width: 380px;
+	margin: 10px;
 }
-label {
-color: #FFF;
 
+label {
+	color: #FFF;
 }
+
 input {
-display: inline-block;
-padding-left: 10px;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.telamoderacao {
+	height: 411px !important;
+}
+
+.bemvindo {
+	backdrop-filter: brightness(0.5);
+}
+
+.protecao {
+	margin-top: 70px;
+}
+
+.filho2 {
+	margin-left: 50px;
+}
+
+.filho3 {
+	margin-left: 100px;
+}
+
+.buttonvoltar {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.buttonvoltar2 {
+	margin-top: 30px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pagina2 {
+	height: 287px;
+}
+
+.pagina2form {
+	padding-top: 200px;
+}
+
+.d-flex {
+	display: flex;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: auto;
 }

@@ -11,7 +11,6 @@ pageEncoding="UTF-8"%>
 
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet">
-
 </head>
 <body>
 <div>
@@ -36,8 +35,9 @@ controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
 <br>
 
 <br>
-Tela de Moderação
-
+<div class="telamoderacao">
+<h1 class="bemvindo">Tela de Moderação</h1>
+</div>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
 <div class="container">
@@ -45,6 +45,11 @@ Tela de Moderação
 </div>
 <!-- /.container -->
 </footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

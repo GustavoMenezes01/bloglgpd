@@ -38,10 +38,11 @@ public class ExibirPostagemServlet extends HttpServlet {
 		if (request.getParameter("offset") != null) {
 			offset = Integer.parseInt(request.getParameter("offset"));
 		}
-		BlogService service = new BlogService();
+		
+		BlogService service = new BlogService();		
 
 		try {
-			ArrayList<Postagem> postsLiberados = service.getPostagems(offset);
+			ArrayList<Postagem> postsLiberados = service.getPostagems(offset);			
 			int totalPosts = service.totalRegistros();
 			request.setAttribute("postsLiberados", postsLiberados);
 			request.setAttribute("totalPosts", totalPosts);

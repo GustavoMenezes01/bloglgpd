@@ -15,13 +15,8 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/blog-home.css" rel="stylesheet">
+<link href="css/blog-home.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-	function openPage(pageURL) {
-		window.location = pageURL;
-	}
-</script>
 </head>
 
 <body>
@@ -55,11 +50,15 @@
 					</div>
 
 					<a href="ExcluirPostagem?ID_POSTAGEM=${post.id}"
-						class="btn btn-primary">Excluir</a>
-					<a href="AlterarStatus?ID_POSTAGEM=${post.id}&EXIBIR=true"
-						class="btn btn-primary">Liberar</a>
+						class="btn btn-danger">Excluir</a>
+						<c:if test = "${post.exibir}">
 					<a href="AlterarStatus?ID_POSTAGEM=${post.id}&EXIBIR=false"
-						class="btn btn-primary">Bloquear</a>
+						class="btn btn-warning">Bloquear</a>
+						</c:if>
+						<c:if test = "${not post.exibir}">
+					<a href="AlterarStatus?ID_POSTAGEM=${post.id}&EXIBIR=true"
+						class="btn btn-success">Liberar</a>
+						</c:if>					
 					<br>									
 
 				</c:forEach>
@@ -68,7 +67,7 @@
 		</div>
 
 		<div id="actions" class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 buttonvoltar">
 				<input type="button" value="Voltar"
 					onclick="openPage('moderacao.jsp')">
 			</div>
@@ -87,6 +86,8 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="js/script.js"></script>
 </body>
 
 </html>

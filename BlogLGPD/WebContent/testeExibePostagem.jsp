@@ -8,19 +8,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Postagem</title>
-<script type="text/javascript">
-	function openPage(pageURL) {
-		window.location = pageURL;
-	}
-</script>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/blog-home.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 	<%
 		Postagem postagem = (Postagem) request.getAttribute("postagem");
 	%>
-	<h1>Postagem</h1>
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<div class="col-md-6" id="">
+				<a class="navbar-brand"><h1>Postagem</h1></a>
+				</div>
+			</div>	
+		</nav>
+	</div>
 	<br>
 	<br>
+	<section class="divLogout">
+		<div class=" container logout">
+			<div class="form">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
@@ -44,7 +56,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<p>
 				<strong>Texto</strong>
 			</p>
@@ -55,7 +67,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<p>
 				<strong>Data</strong>
 			</p>
@@ -68,12 +80,31 @@
 			</p>
 		</div>
 	</div>
-	
+	</div>
+		</div>
+	</section>	
 	<div id="actions" class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 buttonvoltar2">
 				<input type="button" value="Voltar"
 					onclick="openPage('testePostagem.jsp')">
 			</div>
 		</div>
+		
+			<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Desenvolvido por Alunos da
+				USJT - Santana &copy; 2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+	
+	<script src="js/script.js"></script>	
 </body>
 </html>

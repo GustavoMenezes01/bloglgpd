@@ -58,7 +58,7 @@
 		<div class="">
 
 			<!-- Blog Entries Column -->
-			<div class="col-md-12">
+			<div class="col-md-12 protecao">
 
 				<h1 class="my-4">Privacidade de Dados</h1>
 
@@ -77,17 +77,16 @@
 									class="btn btn-primary">Responder &rarr;</a>
 							</div>
 							<div class="card-footer text-muted">
-								Postado em ${post.data} por <a href="#">${post.autor}</a><br>Tem
-								filho: ${post.postagens.size()}
+								Postado em ${post.data} por <a href="#">${post.autor}</a><br>
 							</div>
 						</div>
 						<c:forEach var="post2" items="${post.postagens}">
 							<!-- Blog Post -->
-							<div class="card mb-4">
+							<div class="filho2 card mb-4">
 								<!--<img class="card-img-top"
 								src="img/A-Lei-Geral-de-Proteção-de-Dados-Pessoais.png"
 								height="450" alt="Card image cap">-->
-								<div class="card-body">
+								<div class="card-body" >
 									<h2 class="card-title">${post2.titulo}</h2>
 									<p class="card-text">${post2.texto}</p>
 									<a
@@ -95,13 +94,12 @@
 										class="btn btn-primary">Responder &rarr;</a>
 								</div>
 								<div class="card-footer text-muted">
-									Postado em ${post2.data} por <a href="#">${post2.autor}</a><br>Tem
-									filho: ${post2.postagens.size()}
+									Postado em ${post2.data} por <a href="#">${post2.autor}</a><br>
 								</div>
 							</div>
 							<c:forEach var="post3" items="${post2.postagens}">
 								<!-- Blog Post -->
-								<div class="card mb-4">
+								<div class="filho3 card mb-4">
 									<!--<img class="card-img-top"
 								src="img/A-Lei-Geral-de-Proteção-de-Dados-Pessoais.png"
 								height="450" alt="Card image cap">-->
@@ -113,14 +111,18 @@
 											class="btn btn-primary">Responder &rarr;</a>
 									</div>
 									<div class="card-footer text-muted">
-										Postado em ${post3.data} por <a href="#">${post3.autor}</a><br>Tem
-										filho: ${post3.postagens.size()}
+										Postado em ${post3.data} por <a href="#">${post3.autor}</a><br>
 									</div>
 								</div>
 							</c:forEach>
 						</c:forEach>
 					</c:forEach>
 				</form>
+				</div>
+
+		</div>
+
+	</div>
 
 				<%--<div id='tab1' class="tab_content"
 					style="display: block; width: 100%">					
@@ -166,6 +168,12 @@
 
 				<!-- Pagination -->
 				<!-- Mudar limite aqui na JSP e no DAO -->
+				<div class="container">
+
+		<div class="pagina2">
+
+			<!-- Blog Entries Column -->
+			<div class="col-md-12 d-flex pagina2form">
 				<%
 					int limite = 10;
 					String pagina = request.getParameter("pagina");
@@ -185,8 +193,8 @@
 					if (Integer.parseInt(pagina) > 1) {
 						paginaAnterior = Integer.parseInt(pagina) - 1;
 						offset = ((paginaAnterior) * limite) - limite;
-						out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + paginaAnterior
-								+ "' >&larr;Anterior</a>");
+						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina=" + paginaAnterior
+								+ "' >&larr;Anterior</a></div>");
 					}
 
 					for (int i = 1; i <= totalPagina; i++) {
@@ -197,13 +205,13 @@
 							out.println("<a href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
 						}
 					}
-
+	
 					int proximaPagina;
 					if ((totalPosts - (Integer.parseInt(pagina) * limite)) > 0) {
 						proximaPagina = Integer.parseInt(pagina) + 1;
 						offset = ((proximaPagina) * limite) - limite;
-						out.println("<a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina
-								+ "' >&larr;Próxima</a>");
+						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina
+								+ "' >&larr;Próxima</a></div>");
 					}
 				%>
 

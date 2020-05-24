@@ -12,7 +12,8 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/blog-home.css" rel="stylesheet">
+<link href="css/blog-home.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 	<div>
@@ -52,10 +53,10 @@
 					<label>Autor:</label> <input type="text" name="AUTOR_POSTAGEM"
 						placeholder="Digite seu nome"><br> 
 					<label>Título:</label>
-					<input type="text" name="TITULO_POSTAGEM" value="<%=titulo%>"><br>
+					<input type="text" name="TITULO_POSTAGEM" value="<%=titulo%>" placeholder="Digite um título"><br>
 					<input type="hidden" id="ref" 
 						name="REFERENCIA" value="<%=ref%>"><br> <br>
-					<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50"></textarea>
+					<textarea id="texto" name="MENSAGEM_POSTAGEM" rows="4" cols="50" placeholder="Escreva seu post..."></textarea>
 					<br>
 					<%--Data:<input type="text" name="DATA_POSTAGEM" placeholder="dd/MM/aaaa HH:mm">
 
@@ -72,6 +73,12 @@
 			</div>
 		</div>
 	</section>
+	<div id="actions" class="row">
+			<div class="col-md-12 buttonvoltar">
+				<input type="button" value="Voltar"
+					onclick="openPage('login.jsp')">
+			</div>
+		</div>
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
@@ -84,9 +91,7 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="js/script.js"></script>
 </body>
 </html>
-
-<script>
-	//$('label[for=ref], input#ref').hide();
-</script>

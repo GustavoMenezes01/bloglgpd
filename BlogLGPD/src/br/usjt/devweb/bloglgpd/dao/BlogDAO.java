@@ -100,7 +100,7 @@ public class BlogDAO {
 
 		ArrayList<Postagem> allPosts = new ArrayList<>();
 
-		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM FROM POSTAGEM order by DATA_POSTAGEM desc");
+		String sqlList = ("SELECT ID_POSTAGEM, AUTOR_POSTAGEM, TITULO_POSTAGEM, MENSAGEM_POSTAGEM, DATA_POSTAGEM, EXIBIR FROM POSTAGEM order by DATA_POSTAGEM desc");
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlList);) {
@@ -112,6 +112,7 @@ public class BlogDAO {
 				postagem.setAutor(rs.getString("AUTOR_POSTAGEM"));
 				postagem.setTitulo(rs.getString("TITULO_POSTAGEM"));
 				postagem.setTexto(rs.getString("MENSAGEM_POSTAGEM"));
+				postagem.setExibir(rs.getBoolean("EXIBIR"));
 				try {
 					postagem.setData(new java.util.Date(rs.getTimestamp("DATA_POSTAGEM").getTime()));
 				} catch (Exception e) {

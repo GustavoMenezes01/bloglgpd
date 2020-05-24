@@ -12,10 +12,19 @@
 <title>Postagens</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<a class="navbar-brand">Proteção de Dados</a> <a
+					href="LogoutServlet">Logout</a> <a href="testePostagem.jsp">Postagem</a>
+
+			</div>
+		</nav>
+	</div>
 	<form action="ModeracaoPostagemServlet" method="post">
 		<c:forEach var="post" items="${postsLiberados}">
     
@@ -28,6 +37,21 @@ ${post.data}
 
 </c:forEach>
 	</form>
+	
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Desenvolvido por Alunos da
+				USJT - Santana &copy; 2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
