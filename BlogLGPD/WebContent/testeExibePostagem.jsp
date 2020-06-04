@@ -13,7 +13,8 @@
 
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet" type="text/css">
-
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
 </head>
 <body>
 	<%
@@ -23,7 +24,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 				<div class="col-md-6" id="">
-				<a class="navbar-brand"><h1>Postagem</h1></a>
+				<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>	
 				</div>
 			</div>	
 		</nav>
@@ -88,8 +89,7 @@
 				<input type="button" value="Voltar"
 					onclick="openPage('testePostagem.jsp')">
 			</div>
-		</div>
-		
+		</div>		
 			<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">

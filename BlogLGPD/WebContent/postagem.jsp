@@ -13,14 +13,16 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet" type="text/css">
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
 </head>
 
 <body>
 <div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-				<a class="navbar-brand">Proteção de Dados</a> <a
-					href="LogoutServlet">Logout</a> <a href="testePostagem.jsp">Postagem</a>
+				<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>
+				<a href="LogoutServlet">Logout</a> <a href="testePostagem.jsp">Postagem</a>
 
 			</div>
 		</nav>

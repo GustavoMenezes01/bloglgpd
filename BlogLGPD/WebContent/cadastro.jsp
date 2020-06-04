@@ -16,7 +16,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 				<div class="col-md-6" id="">
-				<a class="navbar-brand">Proteção de Dados</a>
+				<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>
 				</div>
 				<div class="col-md-6 menu" id="">
 				<a href="LogoutServlet">Logout</a> <a href="testePostagem.jsp">Postagem</a>

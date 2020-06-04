@@ -14,13 +14,15 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 
-<title>Blog Proteção de Dados</title>
+<title>LGPD - Lei geral proteção de dados</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet">
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
 
 </head>
 
@@ -33,7 +35,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Proteção de Dados</a>
+			<a class="navbar-brand" href="Index"><img id="iconehome" src="img/home2.png"> LGPD</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -41,16 +43,22 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Página
-							Inicial <span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link" href="#">Início<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">Criar postagem</a>
 					</li>
 
 				</ul>
 			</div>
 		</div>
 	</nav>
+	 <!-- BREADCRUMB -->
+    <section id="fios-fundo1" >
+        <div class="overlay-breadcrumb">
+
+        </div>    
+    </section>
+    <!-- END BREADCRUMB -->
 
 	<!-- Page Content -->
 	<div class="container">
@@ -59,8 +67,6 @@
 
 			<!-- Blog Entries Column -->
 			<div class="col-md-12 protecao">
-
-				<h1 class="my-4">Privacidade de Dados</h1>
 
 				<form action="Index" method="post">
 					<c:forEach var="post" items="${postsLiberados}">
@@ -202,7 +208,7 @@
 
 						} else {
 							offset = ((i) * limite) - limite;
-							out.println("<a href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
+							out.println("<a class='numberpag' href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
 						}
 					}
 	
@@ -211,7 +217,7 @@
 						proximaPagina = Integer.parseInt(pagina) + 1;
 						offset = ((proximaPagina) * limite) - limite;
 						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina
-								+ "' >&larr;Próxima</a></div>");
+								+ "' >Próxima&rarr;</a></div>");
 					}
 				%>
 

@@ -13,14 +13,15 @@
 
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet" type="text/css">
-
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
 </head>
 <body>
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 				<div class="col-md-6" id="">
-					<a class="navbar-brand">Postagem</a>
+					<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>
 				</div>
 				<div class="col-md-6 menu" id="">
 					<a href="LogoutServlet">Logout</a> 

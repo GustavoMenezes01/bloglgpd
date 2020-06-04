@@ -11,12 +11,14 @@ pageEncoding="UTF-8"%>
 
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet">
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
 </head>
 <body>
 <div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container">
-<a class="navbar-brand" href="Index">Proteção de Dados</a>
+<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-
 controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +28,7 @@ controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
 <div class="col-md-6" id="">
 <a class="idmenu" href="LogoutServlet">Logout</a>
 <a class="idmenu" href="testePostagem.jsp">Postagem</a>
-<a class="idmenu" href="AprovacaoPostagem">Aprovação de Posts</a>
+<a class="idmenu" href="AprovacaoPostagem">Moderação de postagem</a>
 
 </div>
 </div>
