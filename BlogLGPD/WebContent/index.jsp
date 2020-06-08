@@ -65,7 +65,7 @@
 	</nav>
 	<div class="owl-carousel owl-theme">
 		<div class="item"><img src="img/lgpd1.jpeg"></div>
-		<div class="item"><img src="img/lgpd2.jpeg"></div>
+		<div class="item"><img src="img/lei2.jpeg"></div>
 		<div class="item"><img src="img/lgpd3.jpg"></div>
 		<div class="item"><img src="img/lgpd4.jpg"></div>			
 	</div>
