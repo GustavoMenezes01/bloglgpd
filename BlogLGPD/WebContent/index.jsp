@@ -22,7 +22,16 @@
 <!-- Custom styles for this template -->
 <link href="css/blog-home.css" rel="stylesheet">
 <!-- For new browsers - multisize ico  -->
-<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="img/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32"
+	href="img/favicon-16x16.png">
+
+<link rel="stylesheet"
+	href="OwlCarousel2-develop/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="OwlCarousel2-develop/dist/assets/owl.theme.default.min.css">
+
+
+
 
 </head>
 
@@ -35,7 +44,8 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="Index"><img id="iconehome" src="img/home2.png"> LGPD</a>
+			<a class="navbar-brand" href="Index"><img id="iconehome"
+				src="img/home2.png"> LGPD</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -43,22 +53,22 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Início<span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link" href="#">Início<span
+							class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">Criar postagem</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">Criar
+							postagem</a></li>
 
 				</ul>
 			</div>
 		</div>
 	</nav>
-	 <!-- BREADCRUMB -->
-    <section id="fios-fundo1" >
-        <div class="overlay-breadcrumb">
-
-        </div>    
-    </section>
-    <!-- END BREADCRUMB -->
+	<div class="owl-carousel owl-theme">
+		<div class="item"><img src="img/lgpd1.jpeg"></div>
+		<div class="item"><img src="img/lgpd2.jpeg"></div>
+		<div class="item"><img src="img/lgpd3.jpg"></div>
+		<div class="item"><img src="img/lgpd4.jpg"></div>			
+	</div>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -92,7 +102,7 @@
 								<!--<img class="card-img-top"
 								src="img/A-Lei-Geral-de-Proteção-de-Dados-Pessoais.png"
 								height="450" alt="Card image cap">-->
-								<div class="card-body" >
+								<div class="card-body">
 									<h2 class="card-title">${post2.titulo}</h2>
 									<p class="card-text">${post2.texto}</p>
 									<a
@@ -124,13 +134,13 @@
 						</c:forEach>
 					</c:forEach>
 				</form>
-				</div>
+			</div>
 
 		</div>
 
 	</div>
 
-				<%--<div id='tab1' class="tab_content"
+	<%--<div id='tab1' class="tab_content"
 					style="display: block; width: 100%">					
 					<display:table name="sessionScope.postsLiberados" pagesize="5"
 						export="true" sort="list" uid="one">
@@ -145,7 +155,7 @@
 					</display:table>
 				</div>--%>
 
-				<%--<%
+	<%--<%
 				if(quantidadePagina > 0){
 					for(int i = 1; i <= quantidadePagina; i++){
 						if(i == numeroPagina){
@@ -172,9 +182,9 @@
 				}
 				%>--%>
 
-				<!-- Pagination -->
-				<!-- Mudar limite aqui na JSP e no DAO -->
-				<div class="container">
+	<!-- Pagination -->
+	<!-- Mudar limite aqui na JSP e no DAO -->
+	<div class="container">
 
 		<div class="pagina2">
 
@@ -199,8 +209,8 @@
 					if (Integer.parseInt(pagina) > 1) {
 						paginaAnterior = Integer.parseInt(pagina) - 1;
 						offset = ((paginaAnterior) * limite) - limite;
-						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina=" + paginaAnterior
-								+ "' >&larr;Anterior</a></div>");
+						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina="
+								+ paginaAnterior + "' >&larr;Anterior</a></div>");
 					}
 
 					for (int i = 1; i <= totalPagina; i++) {
@@ -211,13 +221,13 @@
 							out.println("<a class='numberpag' href=Index?offset=" + offset + "&pagina=" + i + ">" + i + "</a>");
 						}
 					}
-	
+
 					int proximaPagina;
 					if ((totalPosts - (Integer.parseInt(pagina) * limite)) > 0) {
 						proximaPagina = Integer.parseInt(pagina) + 1;
 						offset = ((proximaPagina) * limite) - limite;
-						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina=" + proximaPagina
-								+ "' >Próxima&rarr;</a></div>");
+						out.println("<div class='col-md-6'><a class='page-link' href='Index?offset=" + offset + "&pagina="
+								+ proximaPagina + "' >Próxima&rarr;</a></div>");
 					}
 				%>
 
@@ -243,6 +253,8 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="OwlCarousel2-develop/dist/owl.carousel.min.js"></script>
 
 </body>
 

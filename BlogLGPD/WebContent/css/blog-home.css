@@ -169,7 +169,7 @@ footer {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 400px;
+	height: 300px;
 	width: 100%;
 	position: relative;
 	
@@ -243,4 +243,8 @@ button.btn.btn-primary {
 .formpost {
     margin-top: 45px;
     text-align: center;
+}
+
+.owl-carousel .item img{
+	height: 300px;	
 }

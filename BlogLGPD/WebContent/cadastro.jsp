@@ -19,7 +19,8 @@
 				<a class="navbar-brand" href="Index"><img id="iconehome" src="img/business-and-finance.svg"> LGPD</a>
 				</div>
 				<div class="col-md-6 menu" id="">
-				<a href="LogoutServlet">Logout</a> <a href="testePostagem.jsp">Postagem</a>
+				<a href="LogoutServlet">Logout</a> 
+				<a href="testePostagem.jsp">Criar postagem</a>
 				</div>
 			</div>
 		</nav>

@@ -27,7 +27,7 @@ controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
 </button>
 <div class="col-md-6" id="">
 <a class="idmenu" href="LogoutServlet">Logout</a>
-<a class="idmenu" href="testePostagem.jsp">Postagem</a>
+<a class="idmenu" href="testePostagem.jsp">Criar postagem</a>
 <a class="idmenu" href="AprovacaoPostagem">Moderação de postagem</a>
 
 </div>
